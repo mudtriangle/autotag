@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="./ext.js"></script>
+        <script src="./main_functions.js"></script>
+	    <script src="./lib/CSInterface.js"></script>
+	    <script src="./lib/jquery-1.9.1.js"></script>
+        <script src="./lib/Vulcan.js"></script>
+        <script src="./jsx/json2.js"></script>
+        <script>
+            $(function() {
+                transcript_dependent();
+                $('input[name="option_transcript"]').on('click', transcript_dependent);
+                $('#main_form').on('submit', execute);
+                $('input[type="checkbox"]').on('click', update_time);
+            });
+        </script>
+
+        <link id="ppstyle" href="css/style.css"
+              rel="stylesheet" type="text/css">
+    </head>
+    <body onload="onLoaded()">
+        <h1>AutoTag</h1>
+        <form id="main_form" target="hiddenFrame">
+             <!-- <div class = "checkbox"> -->
+              <input type="checkbox" name="option_ltc"
+                     value="get_ltc" id = "checkboxID">
+              <label for="option_ltc"> Use linear timecode</label><br>
+            <!-- </div> -->
+
+            <input type="checkbox" name="option_transcript"
+                   value="get_transcript">
+            <label for="option_transcript"> Get transcript</label><br>
+
+            <input type="checkbox" name="option_scenes"
+                   value="get_scenes" class="transcript_dependent">
+            <label for="option_scenes"> Get scenes from transcript</label><br>
+
+            <input type="button" id="screenplay-button"
+                   onclick="get_screenplay()" value="Load fdx file"
+                   class="transcript_dependent">
+            <div id="screenplay_path" class="transcript_dependent"></div>
+
+            <input type="checkbox" name="option_markers"
+                   value="get_markers" class="transcript_dependent">
+            <label for="option_markers"> Generate markers from transcript</label><br>
+
+            <input type="checkbox" name="option_shot"
+                   value="get_shot">
+            <label for="option_shot"> Get shot classification</label><br>
+
+            <p>A Terminal window will open to execute the processes.</p>
+            <center><input type="button" id="run-button" onclick="run_main()" value="Run"></center>
+          </form>
+          <div id="time_summary"></div>
+          <div id="debug"></div>
+
+          <iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
+
+          <form id="bins_form" target="hiddenFrame">
+              <center><input type="button" id="make-bins-scene-buttom" onclick="create_bins_scene()"
+                             value="Make bins by Scene" class="bin-button">
+                      <input type="button" id="make-bins-shot-buttom" onclick="create_bins_shot()"
+                             value="Make bins by Shot" class="bin-button"></center>
+          </form>
+    </body>
+</html>

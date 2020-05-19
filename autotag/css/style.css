@@ -1,0 +1,146 @@
+* {
+	font-family: "LucidaGrande", sans-serif;
+	color: #B8B8B8;
+}
+
+h1{
+	font-size:11px;
+}
+
+p {
+	text-align:center;
+}
+
+a {
+        color: #8080ff;
+}
+
+input[type=button]
+{
+	font-size:11px;
+	border:1px solid;
+	border-radius: 25px;
+	height:20px;
+	min-width:100px;
+	color: #B8B8B8;
+	background-color:#1F1F1F;
+	width: fit-content;
+}
+
+input[type=button]:hover
+{
+	font-size:11px;
+	border:1px solid;
+	border-radius: 25px;
+	height:20px;
+	min-width:100px;
+	color: #1F1F1F;
+	background-color:#B8B8B8;
+	width: fit-content;
+}
+
+input[type=button]:disabled{
+	border-color:#2a2a2a;
+	color: #696969;
+	background-color:#2a2a2a;
+}
+
+input[type=button]:active{
+	border-color:#2c8ceb;
+	color: white;
+	background-color:#2c8ceb;
+}
+
+input[type=text]
+{
+	height:10px;
+	font-size:11px;
+}
+
+/* CHECKBOX */
+input[type="checkbox"] {
+    /* opacity: 0; */
+}
+
+.checkbox label::before{
+    content: "";
+    display: inline-block;
+    
+    height: 16px;
+    width: 16px;
+    
+    border: 1px solid;   
+}
+
+.checkbox label::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    
+    transform: rotate(-45deg);
+}
+
+.checkbox label {
+    position: relative;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+}
+
+/*Outer-box*/
+.checkbox label::before {
+	/* top: 3px; */
+	left: -30px;
+}
+/*Checkmark*/
+.checkbox label::after {
+    left: -30px;
+    /* top: 7px; */
+}
+
+/*Hide the checkmark by default*/
+.checkbox input[type="checkbox"] + label::after {
+    content: none;
+}
+/*Unhide the checkmark on the checked state*/
+.checkbox input[type="checkbox"]:checked + label::after {
+    content: "";
+}
+
+label{
+	font-size:11px;
+}
+
+#screenplay_path{
+	font-size:10px;
+	font-style:italic;
+	margin-top:4px;
+	margin-bottom:4px;
+}
+
+#time_summary{
+	font-size:10px;
+	font-style:italic;
+	margin-top:4px;
+	margin-bottom:4px;
+}
+
+body {
+	background-color: #1F1F1F;
+}
+
+.transcript_dependent {
+	margin-left: 30px;
+}
+
+p {
+	font-size:10px;
+	font-style:italic;
+	margin-top:4px;
+	margin-bottom:4px;
+}

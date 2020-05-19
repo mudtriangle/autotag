@@ -1,0 +1,1 @@
+python ~/Desktop/Capstone/src_extendscript/jsx/main.py ~/Desktop/Capstone/src_extendscript/structure.json
