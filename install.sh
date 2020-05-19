@@ -16,12 +16,12 @@ brew install ffmpeg
 echo "Installing python 3.8..."
 brew install python@3.8
 
-echo "Installing git..."
-brew install git
+echo "Installing svn..."
+brew install svn
 
 echo "Installing AutoTag..."
 cd "/Library/Application Support/Adobe/CEP/extensions"
 mkdir AutoTag
-git clone "path to new repo" AutoTag
+svn checkout https://github.com/mudtriangle/autotag/trunk/autotag
 cd AutoTag
 pip install -r requirements.txt
