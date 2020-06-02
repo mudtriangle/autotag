@@ -13,3 +13,8 @@ Installing the files should be straightforward by downloading `install.sh` from 
 ```
 sh ./install.sh
 ```
+**Note:** This plug-in currently only works in MacOS.
+
+## Setting Up Google Cloud
+To fully take advantage of AutoTag's capabilities, specifically Speech-to-Text, a Google Cloud account is required. To create an account, go to [Google Cloud's website](https://cloud.google.com). Then, activate an API key for Speech-to-Text [here](https://cloud.google.com/speech-to-text/). To set up AutoTag with your Google Cloud account, you must create a directory called `api_keys` within the AutoTag directory with a file called `google_cloud.json` with your Google Cloud credentials, or set up an environment variable called `GOOGLE_CLOUD_CREDENTIALS` with the directory where your credentials are stored in your machine.
+
