@@ -44,7 +44,11 @@ def get_transcript_audio_file(audio_path):
             content = f.read()
         audio = {"content": content}
 
-        client = speech_v1.SpeechClient.from_service_account_json('api_keys/google_cloud.json')
+        try:
+            client = speech_v1.SpeechClient.from_service_account_json('api_keys/google_cloud.json')
+        except:
+            client = speech_v1.SpeechClient()
+        
         response = client.recognize(config, audio)
 
         for result in response.results:

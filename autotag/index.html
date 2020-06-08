@@ -4,25 +4,42 @@
         <meta charset="utf-8">
         <script src="./ext.js"></script>
         <script src="./main_functions.js"></script>
-	    <script src="./lib/CSInterface.js"></script>
-	    <script src="./lib/jquery-1.9.1.js"></script>
+        <script src="./lib/CSInterface.js"></script>
+        <script src="./lib/jquery-1.9.1.js"></script>
         <script src="./lib/Vulcan.js"></script>
         <script src="./jsx/json2.js"></script>
-        <script>
-            $(function() {
-                transcript_dependent();
-                $('input[name="option_transcript"]').on('click', transcript_dependent);
-                $('#main_form').on('submit', execute);
-                $('input[type="checkbox"]').on('click', update_time);
-            });
-        </script>
-
-        <link id="ppstyle" href="css/style.css"
-              rel="stylesheet" type="text/css">
+        <script src="./lib/jquery.multiselect.js"></script>
+        
+        <link rel="stylesheet" href="lib/jquery.multiselect.css">
+        <link id="ppstyle" href="css/style.css" rel="stylesheet" type="text/css">
     </head>
     <body onload="onLoaded()">
         <h1>AutoTag</h1>
         <form id="main_form" target="hiddenFrame">
+              <select name="langOpt[]" multiple id="langOpt">
+                     <option value="arabic"> Arabic</option>
+                     <option value="danish"> Danish</option>
+                     <option value="dutch"> Dutch</option>
+                     <option value="english"> English</option>
+                     <option value="finnish"> Finnish</option>
+                     <option value="french"> French</option>
+                     <option value="german"> German</option>
+                     <option value="hungarian"> Hungarian</option>
+                     <option value="italian"> Italian</option>
+                     <option value="norwegian"> Norwegian</option>
+                     <option value="portuguese"> Portuguese</option>
+                     <option value="romanian"> Romanian</option>
+                     <option value="russian"> Russian</option>
+                     <option value="spanish"> Spanish</option>
+                     <option value="swedish"> Swedish</option>
+              </select>
+              <script>
+              $('#langOpt').multiselect({
+                     columns: 1,
+                     placeholder: 'Select Language(s)'
+              });
+              </script>
+
              <!-- <div class = "checkbox"> -->
               <input type="checkbox" name="option_ltc"
                      value="get_ltc" id = "checkboxID">
