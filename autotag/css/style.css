@@ -15,6 +15,12 @@ a {
         color: #8080ff;
 }
 
+ul {
+	list-style-type: none;
+	padding:0;
+	margin:0;
+   }
+
 input[type=button]
 {
 	font-size:11px;
@@ -23,7 +29,7 @@ input[type=button]
 	height:20px;
 	min-width:100px;
 	color: #B8B8B8;
-	background-color:#1F1F1F;
+	background-color:#232323;
 	width: fit-content;
 }
 
@@ -42,7 +48,7 @@ input[type=button]:hover
 input[type=button]:disabled{
 	border-color:#2a2a2a;
 	color: #696969;
-	background-color:#2a2a2a;
+	background-color:#232323;
 }
 
 input[type=button]:active{
@@ -131,7 +137,7 @@ label{
 }
 
 body {
-	background-color: #1F1F1F;
+	background-color: #232323;
 }
 
 .transcript_dependent {
