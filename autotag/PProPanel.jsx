@@ -130,8 +130,8 @@ $._ext = {
 		}
 	},
 
-	get_structure: function(path_to_screenplay, options_str, exists) {
-		ps = new ProjectStructure(path_to_screenplay, options_str, exists);
+	get_structure: function(path_to_screenplay, options_str, languages, exists) {
+		ps = new ProjectStructure(path_to_screenplay, options_str, languages, exists);
 
 		if (exists != "true") {
 			ps.populate_structure(app.project.rootItem);

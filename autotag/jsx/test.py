@@ -58,7 +58,7 @@ def main(structure_dict, key):
 
             if 'get_transcript' in structure['settings']['options_str'] and 'transcript' not in list(result_dict.keys()):
                 result_dict['transcript'] =\
-                    get_transcript_audio(result_dict['real_path'])
+                    get_transcript_audio(result_dict['real_path'], structure_dict['settings']['languages'])
 
             if 'get_scenes' in structure['settings']['options_str'] and 'scene' not in list(result_dict.keys()):
                 result_dict['scene'] =\
@@ -73,7 +73,7 @@ def main(structure_dict, key):
 
             if 'get_transcript' in structure['settings']['options_str'] and 'transcript' not in list(result_dict.keys()):
                 result_dict['transcript'] =\
-                    get_transcript_video(result_dict['real_path'])
+                    get_transcript_video(result_dict['real_path'], structure_dict['settings']['languages'])
 
             if 'get_scenes' in structure['settings']['options_str'] and 'scene' not in list(result_dict.keys()):
                 result_dict['scene'] =\

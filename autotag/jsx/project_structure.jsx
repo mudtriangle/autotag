@@ -9,12 +9,13 @@ if ( ExternalObject.AdobeXMPScript == undefined ) {
     ExternalObject.AdobeXMPScript = new ExternalObject( "lib:AdobeXMPScript");
 }
 
-function ProjectStructure(path_to_screenplay, options_str, exists) {
+function ProjectStructure(path_to_screenplay, options_str, languages, exists) {
     if (exists != "true") {
         this.file_structure = {
             "settings": {
                 "path_to_screenplay": path_to_screenplay,
-                "options_str": options_str
+                "options_str": options_str,
+                "languages": languages
                 },
             "media": {}
         };
@@ -32,6 +33,7 @@ function ProjectStructure(path_to_screenplay, options_str, exists) {
         }
         
         this.file_structure["settings"]["options_str"] = options_str;
+        this.file_structure["settings"]["languages"] = languages;
     }
 
     this.populate_structure = function(current_item) {

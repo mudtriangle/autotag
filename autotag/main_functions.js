@@ -135,10 +135,13 @@ function run_main() {
             str_options = str_options +  ' ' + val.value;
         });
 
+        var langs = $('#langOpt').val();
+
         var path_to_screenplay = $('#screenplay_path').text();
         evalScript("$._ext.get_structure('"
                    + path_to_screenplay + "', '"
                    + str_options + "', '"
+                   + langs + "', '"
                    + exists + "')",
                    function() {
                        evalScript("$._ext.run_python_script()", function(res) {
