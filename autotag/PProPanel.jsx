@@ -81,15 +81,17 @@ $._ext = {
 	},
 
 	run_python_script: function() {
-		command_path = "/Library/Application Support/Adobe/CEP/extensions/src_extendscript/test.command"
-		python_path = "/Library/Application Support/Adobe/CEP/extensions/src_extendscript/jsx/test.py"
+		command_path = "/Library/Application Support/Adobe/CEP/extensions/autotag/test.command"
+		python_path = "/Library/Application Support/Adobe/CEP/extensions/autotag/jsx/test.py"
 
 		var f = File(command_path);
-		f.open('w');
+		alert(f.open('w'));
 		f.write('python "' + python_path + '" "' + app.project.path + '.json"');
 		f.close();
 
 		f.execute();
+
+		return;
 
 		var proj_file = File(app.project.path + '.json');
 		proj_file.open('r');

@@ -21,7 +21,8 @@ brew install svn
 
 echo "Installing AutoTag..."
 cd "/Library/Application Support/Adobe/CEP/extensions"
-mkdir AutoTag
+mkdir autotag
 svn checkout https://github.com/mudtriangle/autotag/trunk/autotag
-cd AutoTag
+cd autotag
 pip install -r requirements.txt
+chmod 777 "/Library/Application Support/Adobe/CEP/extensions/autotag/test.command"

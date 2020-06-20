@@ -3,19 +3,12 @@ import re
 import unicodedata
 
 import nltk
-from nltk.tokenize import TweetTokenizer
-from nltk.stem.porter import PorterStemmer
+from nltk.tokenize import word_tokenize
+from nltk.stem.isri import ISRIStemmer
+from nltk.stem.snowball import SnowballStemmer
 from nltk.corpus import stopwords
 
-# Initialize.
-tokenizer = TweetTokenizer()
-stemmer = PorterStemmer()
-
-try:
-    stop_words = set(stopwords.words('english'))
-except LookupError:
-    nltk.download('stopwords')
-    stop_words = set(stopwords.words('english'))
+import pickle as pkl
 
 
 # Takes a string with special characters and returns a string only with English letters.
@@ -25,12 +18,17 @@ def strip_accents(original_string):
 
 # Get rid of punctuation and special characters from a string.
 def normalize(original_string):
-    return strip_accents(re.sub(r'[^\w\s]', ' ', original_string.strip().lower()))
+    return re.sub(r'[^\w\s]', ' ', original_string.strip().lower())
 
 
 # Takes a normalized string and returns the relevant stemmed tokens for that string.
-def tokenize(clean_string):
-    words = tokenizer.tokenize(clean_string)
+def tokenize(clean_string, lang):
+    with open('stop_words/' + lang + '.pkl', 'rb') as f:
+        stop_words = pkl.load(f)
+
+    stemmer = SnowballStemmer(lang)
+
+    words = nltk.word_tokenize(clean_string)
     tokens = []
     for word in words:
         # Ignore stop words.
