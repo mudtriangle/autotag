@@ -85,8 +85,8 @@ $._ext = {
 		python_path = "/Library/Application Support/Adobe/CEP/extensions/autotag/jsx/test.py"
 
 		var f = File(command_path);
-		alert(f.open('w'));
-		f.write('python "' + python_path + '" "' + app.project.path + '.json"');
+		f.open('w');
+		f.write('python3 "' + python_path + '" "' + app.project.path + '.json"');
 		f.close();
 
 		f.execute();
