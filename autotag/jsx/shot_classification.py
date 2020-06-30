@@ -13,10 +13,10 @@ os.chdir(dir_name + '/..')
 
 
 def classify_shot_file(video_path):
-    with open('test_data/new_centroids.pkl', 'rb') as f:
+    with open('centroids/new_centroids.pkl', 'rb') as f:
         centroids = pickle.load(f)
 
-    with open('test_data/scaler.pkl', 'rb') as f:
+    with open('centroids/scaler.pkl', 'rb') as f:
         scaler = pickle.load(f)
 
     model = cv.dnn.readNetFromCaffe('caffe_model/deploy.prototxt.txt',
