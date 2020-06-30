@@ -17,7 +17,6 @@ from pdfminer.pdfpage import PDFPage
 
 # Constants
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = '../api_keys/google_cloud.json'
-DIR = '../test_data'
 SCENE_HEADINGS = ['INT ', 'EXT ', 'INT.', 'EXT.' 'CREDIT', 'DAY', 'NIGHT']
 
 

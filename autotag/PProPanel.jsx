@@ -91,8 +91,6 @@ $._ext = {
 
 		f.execute();
 
-		return;
-
 		var proj_file = File(app.project.path + '.json');
 		proj_file.open('r');
 		var settings = JSON.parse(proj_file.read())["settings"];
