@@ -150,3 +150,8 @@ p {
 	margin-top:4px;
 	margin-bottom:4px;
 }
+
+.bins_list{
+	height: 45px;
+	width: 49%;
+}

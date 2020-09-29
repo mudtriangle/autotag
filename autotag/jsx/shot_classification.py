@@ -59,8 +59,10 @@ def classify_shot_file(video_path):
                 if endY < 0 or endY > H:
                     continue
 
-                largest_face = ((endX - startX) * (endY - startY)) / (W * H)
-                largest_box = [startX, startY, endX, endY]
+                this_face = ((endX - startX) * (endY - startY)) / (W * H)
+                if this_face > largest_face:
+                    largest_face = this_face
+                    largest_box = [startX, startY, endX, endY]
 
         if largest_face > 0:
             data = np.array([largest_face,

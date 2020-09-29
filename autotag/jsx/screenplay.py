@@ -129,19 +129,19 @@ class Screenplay:
             # The remaining elements are the final scene.
             self.scenes.append(Scene(lines=curr_scene))
 
-    def find_scene_from_transcript(self, transcript):
+    def find_scene_from_transcript(self, transcript, lang):
         transcript_text = ''
         for t in transcript.keys():
             for alternative in transcript[t]:
                 transcript_text += ' ' + alternative
 
-        tokens = tokenize(normalize(transcript_text))
+        tokens = tokenize(normalize(transcript_text), lang)
         scores = []
         for scene in self.scenes:
             curr_score = 0
 
             for num_ngrams in range(1, 6):
-                scene_ngrams = scene.get_ngrams(num_ngrams)
+                scene_ngrams = scene.get_ngrams(num_ngrams, lang)
                 dialogue = get_ngrams(tokens, num_ngrams)
                 for ngram in dialogue:
                     if ngram in scene_ngrams:
@@ -222,10 +222,10 @@ class Scene:
         # When called to print, print the header and the body separated by a return character.
         return self.header + '\n' + self.body
 
-    def get_ngrams(self, n):
+    def get_ngrams(self, n, lang):
         # Generate ngrams from the dialogues for searching purposes.
         full_text = ''
         for dia in self.dialogues:
             full_text += dia[1] + ' '
 
-        return get_ngrams(tokenize(normalize(full_text)), n)
+        return get_ngrams(tokenize(normalize(full_text), lang), n)

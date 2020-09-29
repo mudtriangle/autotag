@@ -93,6 +93,10 @@
                      value="get_ltc" id = "checkboxID">
               <label for="option_ltc"> Use linear timecode</label><br>
 
+              <input type="checkbox" name="option_shot"
+                   value="get_shot">
+            <label for="option_shot"> Get shot classification</label><br>
+
             <input type="checkbox" name="option_transcript"
                    value="get_transcript">
             <label for="option_transcript"> Get transcript</label><br>
@@ -110,9 +114,13 @@
                    value="get_markers" class="transcript_dependent">
             <label for="option_markers"> Generate markers from transcript</label><br>
 
-            <input type="checkbox" name="option_shot"
-                   value="get_shot">
-            <label for="option_shot"> Get shot classification</label><br>
+            <input type="checkbox" name="bins_scene"
+                   value="bins_scene">
+            <label for="bins_scene"> Make bins by scene</label><br>
+
+            <input type="checkbox" name="bins_shot"
+                   value="bins_shot">
+            <label for="bins_shot"> Make bins by shot</label><br>
 
             <p>A Terminal window will open to execute the processes.</p>
             <center><input type="button" id="run-button" onclick="run_main()" value="Run"></center>
@@ -121,12 +129,5 @@
           <div id="debug"></div>
 
           <iframe name="hiddenFrame" width="0" height="0" style="display: none;"></iframe>
-
-          <form id="bins_form" target="hiddenFrame">
-              <center><input type="button" id="make-bins-scene-buttom" onclick="create_bins_scene()"
-                             value="Make bins by Scene" class="bin-button">
-                      <input type="button" id="make-bins-shot-buttom" onclick="create_bins_shot()"
-                             value="Make bins by Shot" class="bin-button"></center>
-          </form>
     </body>
 </html>
