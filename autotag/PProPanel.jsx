@@ -22,6 +22,7 @@ if(typeof($)=='undefined'){
 
 $._ext = {
 	create_bins_by_shot: function() {
+		alert('this was called');
 		var shot_tags = [["Shot: Unknown", "custom_shot_UNKNOWN"],
                          ["Shot: Close-Up", "custom_shot_CLOSEUP"],
                          ["Shot: Medium Close-Up", "custom_shot_MEDIUMCLOSEUP"],

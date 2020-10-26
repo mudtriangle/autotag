@@ -95,7 +95,7 @@ function get_structure() {
     var exists;
     evalScript("$._ext.check_if_exists()", function(res) {
         exists = res;
-        evalScript("alert('" + exists + "')");
+        // evalScript("alert('" + exists + "')");
     });
 
     var vals = $('input[type="checkbox"]').serializeArray();
@@ -148,7 +148,14 @@ function run_main() {
                            evalScript("$._ext.write_to_project('"
                                       + path_to_screenplay + "', '"
                                       + str_options + "', '"
-                                      + exists + "')");
+                                      + exists + "')", function() {
+                                          if (str_options.indexOf('bins_shot') > -1) {
+                                              create_bins_shot();
+                                          }
+                                          if (str_options.indexOf('bins_scene') > -1) {
+                                            create_bins_scene();
+                                        }
+                                      });
                        });
                    });
 

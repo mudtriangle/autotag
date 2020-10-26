@@ -1,1 +1,1 @@
-python "/Library/Application Support/Adobe/CEP/extensions/src_extendscript/jsx/test.py" "/Volumes/SAVE HERE/marcelo_capstone/test.prproj.json"
+python "/Library/Application Support/Adobe/CEP/extensions/autotag/jsx/test.py" "/Volumes/SAVE HERE/marcelo_capstone/test.prproj.json"

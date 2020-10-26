@@ -47,7 +47,13 @@ def main(structure_dict, key):
         if structure_dict['media'][key]['real_path'] == "":
             return [key, result_dict, "Not a file"]
 
-        type_of_file = mimetypes.MimeTypes().guess_type(result_dict['real_path'])[0][:5]
+        try:
+            type_of_file = mimetypes.MimeTypes().guess_type(result_dict['real_path'])[0][:5]
+        except TypeError:
+            if result_dict['real_path'][-4:].lower() == '.mts':
+                type_of_file = 'video'
+            else:
+                type_of_file = ''
 
         if type_of_file == 'audio':
             result_dict['is_media'] = True

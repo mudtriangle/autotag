@@ -1,1 +1,1 @@
-python ~/Desktop/Capstone/src_extendscript/jsx/main.py ~/Desktop/Capstone/src_extendscript/structure.json
+python ~/Desktop/Capstone/autotag/jsx/main.py ~/Desktop/Capstone/autotag/structure.json

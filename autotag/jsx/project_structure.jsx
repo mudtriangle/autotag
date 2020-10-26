@@ -80,12 +80,13 @@ function ProjectStructure(path_to_screenplay, options_str, languages, exists) {
                 this.write_to_project(current_item.children[i]);
 
             } else {
+                try {
                 var t_path = current_item.children[i].treePath;
 
                 if (this.file_structure["media"][t_path]["is_media"] != false) {
                     var metadata = new XMPMeta(current_item.children[i].getProjectMetadata());
                     if (metadata.doesPropertyExist(priv_metadata_uri, log_note)) {
-                        var metadata_string = metadata.getProperty(priv_metadata_uri, log_note);
+                        var metadata_string = metadata.getProperty(priv_metadata_uri, log_note) + ";";
                     } else {
                         var metadata_string = "";
                     }
@@ -113,6 +114,8 @@ function ProjectStructure(path_to_screenplay, options_str, languages, exists) {
 
                     current_item.children[i].setProjectMetadata(metadata.serialize(), [log_note]);
                 }
+                }
+                catch(err) {}
             }
         }
     }

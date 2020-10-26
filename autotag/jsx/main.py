@@ -22,11 +22,19 @@ with open('structure.json', 'r') as f:
 audio_files = []
 video_files = []
 for file in structure.keys():
-    type_of_file = mimetypes.MimeTypes().guess_type(structure[file]['real_path'])[0][:5]
-    if type_of_file == 'audio':
-        audio_files.append(file)
-    elif type_of_file == 'video':
+    if structure[file]['real_path'][-4:].lower() == '.mts':
         video_files.append(file)
+    
+    else:
+        try:
+            type_of_file = mimetypes.MimeTypes().guess_type(structure[file]['real_path'])[0][:5]
+        except TypeError:
+            continue
+        
+        if type_of_file == 'audio':
+            audio_files.append(file)
+        elif type_of_file == 'video':
+            video_files.append(file)
 
 '''
 for audio_file in audio_files:
