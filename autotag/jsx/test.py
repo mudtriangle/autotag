@@ -52,6 +52,10 @@ def main(structure_dict, key):
         except TypeError:
             if result_dict['real_path'][-4:].lower() == '.mts':
                 type_of_file = 'video'
+            
+            elif result_dict['real_path'][-4:].lower() == '.mxf':
+                type_of_file = 'video'
+
             else:
                 type_of_file = ''
 
